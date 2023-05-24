@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 
 {
-    Rigidbody2D rbody;
+    Rigidbody2D rBody2D;
+    Collider2D collider;
 
     public float bulletSpeed = 5;
 
@@ -13,18 +14,12 @@ public class Bullet : MonoBehaviour
     void Start()
     {
        rBody2D = GetComponent <Rigidbody2D> ();
-       rBody.AddForce(transform.right* bulletSpeed, ForceMode2D.Impulse);
+       rBody2D.AddForce(transform.right* bulletSpeed, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
-    void OnTriggerEnter2D(collider2D collider)
-    {
-        if (collider gameObject.layer == 6)
-        {
-            Enemy enemy = collider.gameObject.GetComponent<Enemy>();
-            enemy.Die();
-        }
-        
+    void OnTriggerEnter2D(Collider2D collider)
+    {      
         Destroy (this.gameObject);
     }
 }
