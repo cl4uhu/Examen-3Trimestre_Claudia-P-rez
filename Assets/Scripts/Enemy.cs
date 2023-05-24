@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour
     SoundManager soundManager;
     GameManager gameManager;
 
-    public List <GameObject> enemiesInScreen;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +75,17 @@ public class Enemy : MonoBehaviour
             {
                 horizontal = 1;
             }
+
+            if(collider.gameObject.layer == 6)
+	        {
+	            Enemy enemy = collider.gameObject.GetComponent <Enemy> ();
+
+                enemy.Die();
+            }
+
+                Destroy(this.gameObject);
+
         }
     }
-    
+
 }

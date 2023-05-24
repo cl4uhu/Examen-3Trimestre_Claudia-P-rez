@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
+
 {
     public bool isGameOver;
+
+    public List <GameObject> enemiesInScreen;
 
     public Text coinText;
     int coins;
