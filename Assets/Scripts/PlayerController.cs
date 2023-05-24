@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     //Variable para acceder al GroundSensor
     private GroundSensor sensor;
     public Animator anim;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
 
     //Variable para almacenar el input de movimiento
     float horizontal;
@@ -33,10 +35,7 @@ public class PlayerController : MonoBehaviour
         sensor = GameObject.Find("GroundSensor").GetComponent<GroundSensor>();
         //Buscamos el objeto del GameManager y SFXManager lo asignamos a las variables
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
-
-
-        
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();   
     }
 
     // Update is called once per frame
@@ -58,6 +57,11 @@ public class PlayerController : MonoBehaviour
             if(Input.GetButtonDown("Jump") && sensor.isGrounded)
             {
                 rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
+
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                Instantate (bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
             }
         }    
         
