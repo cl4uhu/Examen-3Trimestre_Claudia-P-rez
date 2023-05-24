@@ -29,13 +29,14 @@ public class PlayerController : MonoBehaviour
     {
         //Asignamos la variables del SpriteRender con el componente que tiene este objeto
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         //Asignamos la variable del Rigidbody2D con el componente que tiene este objeto
         rBody = GetComponent<Rigidbody2D>();
         //Buscamos un Objeto por su nombre, cojemos el Componente GroundSensor de este objeto y lo asignamos a la variable
         sensor = GameObject.Find("GroundSensor").GetComponent<GroundSensor>();
         //Buscamos el objeto del GameManager y SFXManager lo asignamos a las variables
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();   
+        sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>(); 
     }
 
     // Update is called once per frame
@@ -44,19 +45,23 @@ public class PlayerController : MonoBehaviour
         if(gameManager.isGameOver == false)
         {
             horizontal = Input.GetAxis("Horizontal");
-
+            anim.SetBool("IsRunning", false);
+            
             if(horizontal < 0)
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
+                anim.SetBool("IsRunning", true);
             }
             else if(horizontal > 0)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+                anim.SetBool("IsRunning", true);
             }
 
             if(Input.GetButtonDown("Jump") && sensor.isGrounded)
             {
                 rBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                anim.SetBool("IsJumping", true);
             }
 
             if(Input.GetKeyDown(KeyCode.F))

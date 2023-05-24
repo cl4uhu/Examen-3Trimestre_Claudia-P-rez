@@ -17196,7 +17196,7 @@ PrefabInstance:
     - target: {fileID: 7102897459264945057, guid: 457cbd0a68e12d34aa6e0bc2bcb40d2c, type: 3}
       propertyPath: bulletSpawn
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 909718087}
     - target: {fileID: 7102897459264945057, guid: 457cbd0a68e12d34aa6e0bc2bcb40d2c, type: 3}
       propertyPath: attackHitBox
       value: 
@@ -17204,7 +17204,7 @@ PrefabInstance:
     - target: {fileID: 7102897459264945057, guid: 457cbd0a68e12d34aa6e0bc2bcb40d2c, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 3049967276280573395, guid: d5c558abf0281494b9ea53675a831220, type: 3}
+      objectReference: {fileID: 7445036914926725309, guid: 98a3bfc57d2f4ee4a9ce044d3fe08f33, type: 3}
     - target: {fileID: 7102897459264945057, guid: 457cbd0a68e12d34aa6e0bc2bcb40d2c, type: 3}
       propertyPath: enemyLayer.m_Bits
       value: 64
