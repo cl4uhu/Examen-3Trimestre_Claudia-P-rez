@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     SoundManager soundManager;
     GameManager gameManager;
 
+    public List <GameObject> enemiesInScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,9 +79,5 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
-    void OnBecameVisible()
-    {
-        
-    }
+    
 }

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rBody;
     //Variable para acceder al GroundSensor
     private GroundSensor sensor;
+    public Animator anim;
 
     //Variable para almacenar el input de movimiento
     float horizontal;
@@ -53,9 +54,6 @@ public class PlayerController : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
-
-
-
 
             if(Input.GetButtonDown("Jump") && sensor.isGrounded)
             {
